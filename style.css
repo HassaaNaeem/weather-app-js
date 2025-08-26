@@ -22,6 +22,8 @@ body {
   max-width: 425px;
   flex-grow: 1;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .search-section {
@@ -86,6 +88,36 @@ body {
   border-color: #5f41e4;
 }
 
+.no-result {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.no-results .title {
+  margin: 25px 0 15px;
+}
+.no-results .message {
+  font-weight: 500;
+}
+
+body.show-no-results .no-result {
+  display: flex;
+}
+
+body.show-no-results .weather-section {
+  visibility: hidden;
+}
+
 .weather-section .current-weather {
   display: flex;
   align-items: center;
@@ -122,7 +154,7 @@ body {
 .hourly-weather .weather-list {
   display: flex;
   list-style: none;
-  gap: 43px;
+  gap: 38px;
   overflow-x: auto;
   scrollbar-width: thin;
   padding-bottom: 16px;
